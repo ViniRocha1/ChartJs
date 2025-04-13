@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<style>
+
+    .centerLinha{
+        justify-items: center;
+    }
+    .centerBarras{
+        justify-items: center;
+    }
+</style>
+
+    <div class="centerLinha">
+        <h3>Gráfico de (Umidade e Temperatura)/Hora</h3>
+
+        <canvas id="myChart" style="position: relative; height:40vh; width:100vw"></canvas>
+    </div>
+
+ <div class="centerBarras">
+    <h3>Gráfico de (Temperatura e Umidade média)/Mês</h3>
+
+        <canvas id="myChart2" style="position: relative; height:40vh; width:100vw"></canvas>
+    </div>
+
+
+    
+</body>
+</html>
+<script>
+         const labelLinha = [
+            '12:00',
+            '13:00',
+            '14:00',
+            '15:00',
+            '16:00',
+            '17:00',
+        ]
+        const labelBarra = [
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+        ]
+    
+        const linha = {
+            labels: labelLinha, 
+            datasets: [{
+                label: 'Temperatura (°C)',
+                backgroundColor: 'rgb(255, 9, 132)',
+                borderColor: 'rgb(255, 9, 132)',
+                data: [30, 29, 28, 25, 22, 23],
+            }, {
+                label: 'Umidade (%)',
+                backgroundColor: 'blue',
+                borderColor: 'ble',
+                data: [80, 82, 80, 85, 80, 83],
+            }]
+        }
+        const barra = {
+            labels: labelBarra, 
+            datasets: [{
+                label: 'Temperatura (°C)',
+                backgroundColor: 'rgb(255, 9, 132)',
+                borderColor: 'rgb(255, 9, 132)',
+                data: [22, 24, 27, 23, 20, 18],
+            }, {
+                label: 'Umidade (%)',
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+                data: [90, 89, 93, 87, 88, 82],
+            }]
+        }
+        const config = {
+            type: 'line',
+            data: linha,
+            options: {}
+        }
+        const config2 = {
+            type: 'bar',
+            data: barra,
+            options: {}
+        }
+    
+        const myChart = new Chart (
+            document.getElementById('myChart'),
+            config
+        )
+        const myChart2 = new Chart (
+            document.getElementById('myChart2'),
+            config2
+        )
+        
+        </script>
+        
